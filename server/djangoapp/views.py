@@ -131,7 +131,7 @@ def add_review(request):
         data = json.loads(request.body)
         try:
             response = post_review(data)
-            return JsonResponse({"status":200})
+            return JsonResponse({"status":200, "response": response})
         except:
             return JsonResponse({"status":401,"message":"Error in posting review"})
     else:
