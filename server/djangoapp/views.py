@@ -52,7 +52,7 @@ def logout_request(request):
 @csrf_exempt
 def registration(request):
     # context = {}
-	# Load JSON data from the request body
+    # Load JSON data from the request body
     data = json.loads(request.body)
     username = data['userName']
     password = data['password']
@@ -144,10 +144,11 @@ def add_review(request):
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
 
+
 def get_cars(request):
     count = CarMake.objects.filter().count()
     print(count)
-    if(count == 0):
+    if (count == 0):
         initiate()
     car_models = CarModel.objects.select_related('car_make')
     cars = []
